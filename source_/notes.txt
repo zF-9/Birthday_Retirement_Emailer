@@ -1,0 +1,3 @@
+Install-Module sqlserver
+
+Import-Module sqlserver
