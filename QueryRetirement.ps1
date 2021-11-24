@@ -1,5 +1,8 @@
-﻿$SQLServer = "10.250.1.221"
-$db3 = "SabahNet"
+#$SQLServer = "10.250.1.221"
+#$db3 = "SabahNet"
+
+$SQLServer = "10.71.99.2"
+$db3 = "NewSmapan"
 
 ###############################################################################################################
 $todaymonth=get-date -Format "MM"
@@ -7,7 +10,9 @@ $todayday=get-date -Format “dd”
 
 $formatfile = get-date -Format “ddMMyyyy dddd”
 $formatfile = ".\$formatfile.txt"
-$qcd = "Select * from view_happybirthdaytable where BODMonth='$todaymonth' and BODDay='$todayday'"
+#$qcd = "Select * from view_happybirthdaytable where BODMonth='$todaymonth' and BODDay='$todayday'"
+$qcd = "Select EmployeeName, StaffEmail, BirthDate from ViewPersonal_for_Dashboard where staffemail is not null and month(birthdate)='$todaymonth' and day(birthdate)='$todayday'"
+#change <BirthDate> && month(birthdate) -> RetireDate == column name in "ViewPersonal_for_Dashboard"
 
 ###############################################################################################################
 #   $qcd = <parameters on retirement date> from *DB yang ada retirement date punya information

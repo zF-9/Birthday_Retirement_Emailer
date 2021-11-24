@@ -1,4 +1,4 @@
-﻿$happyName=$args[0]
+$happyName=$args[0]
 $happyEmail=$args[1]
 
 #change $From to KPPAN distinct email from sabah.net
@@ -22,6 +22,7 @@ $Subject = “Happy Birthday $happyName!”
 
 #################################################################
 
+# change <$SMTPServer> and <$SMTPPort> to physical sever and port
 $SMTPServer = “smtp.sabah.gov.my”
 $SMTPPort = “25”
 
