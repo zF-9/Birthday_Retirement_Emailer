@@ -14,8 +14,8 @@ foreach ($database in $databases) #for each separate server / database pair in $
 $CH_NAME = $database.EmployeeName #instance from the select query
 $CH_EMAIL = $database.StaffEmail #databasename from the select query
 Write-Output "$CH_NAME $CH_EMAIL"
-invoke-expression -Command ".\Birthday_KPPAN.ps1  '$CH_NAME' $CH_EMAIL"
-invoke-expression -Command ".\Birthday_SKN.ps1  '$CH_NAME' $CH_EMAIL"
+invoke-expression -Command ".\_from-KPPAN\Birthday_KPPAN.ps1  '$CH_NAME' $CH_EMAIL"
+invoke-expression -Command ".\_from-SKN\Birthday_SKN.ps1  '$CH_NAME' $CH_EMAIL"
 Add-Content $formatfile "$CH_NAME $CH_EMAIL"
 } #end foreach loop
 Write-Output $todaymonth $todayday

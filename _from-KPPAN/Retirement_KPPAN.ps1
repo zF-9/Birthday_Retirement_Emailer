@@ -14,11 +14,11 @@ $Subject = “Happy Retirement $RetireeName!”
 # 	   add images & include in args - Attachments		#
 #################################################################
 
-#$AnotherReport = ".\11321614136980075.png"
-#$Report += $AnotherReport
+$AnotherReport = ".\assets\retirekppan1.jpg"
+$Report += $AnotherReport
 
-#$AnotherReport = ".\3561614137137900.png"
-#$Report += $AnotherReport
+$AnotherReport = ".\assets\retirekppan2.jpg"
+$Report += $AnotherReport
 
 #################################################################
 
@@ -27,7 +27,8 @@ $SMTPServer = “smtp.sabah.gov.my”
 $SMTPPort = “25”
 
 # change <.html> in get-content to template accordingly 
-$Body = Get-Content '.\Happy Birthday 1.html' | Out-String #".\Happy_retirement.html"
+$Body = Get-Content '.\_from-KPPAN\retire-kppan.html' | Out-String 
+#".\Happy_retirement.html"
 $Body = $Body -replace "NameToReplace", $RetireeName
 
 Send-MailMessage -From $From -to $To -Subject $Subject -Body $Body -BodyAsHtml -SmtpServer $SMTPServer -port $SMTPPort -Attachments $Report

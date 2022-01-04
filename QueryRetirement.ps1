@@ -28,8 +28,8 @@ Write-Output "$CH_NAME $CH_EMAIL"
 
 ##############################################################################################################
 
-invoke-expression -Command ".\Retirement_KPPAN.ps1  '$CH_NAME' $CH_EMAIL"
-invoke-expression -Command ".\Retirement_SKN.ps1  '$CH_NAME' $CH_EMAIL"
+invoke-expression -Command ".\_from-KPPAN\Retirement_KPPAN.ps1  '$CH_NAME' $CH_EMAIL"
+invoke-expression -Command ".\_from-SKN\Retirement_SKN.ps1  '$CH_NAME' $CH_EMAIL"
 
 ##############################################################################################################
 #   invoke ".\<retirement_greets(SKN/KPPAN).ps1>" : change deez 
