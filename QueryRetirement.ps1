@@ -6,12 +6,13 @@ $db3 = "NewSmapan"
 
 ###############################################################################################################
 $todaymonth=get-date -Format "MM"
-$todayday=get-date -Format “dd”
+$todayday=get-date -Format "dd"
 
-$formatfile = get-date -Format “ddMMyyyy dddd”
+$formatfile = get-date -Format "ddMMyyyy dddd"
 $formatfile = ".\$formatfile.txt"
 #$qcd = "Select * from view_happybirthdaytable where BODMonth='$todaymonth' and BODDay='$todayday'"
-$qcd = "Select EmployeeName, StaffEmail, BirthDate from ViewPersonal_for_Dashboard where staffemail is not null and month(birthdate)='$todaymonth' and day(birthdate)='$todayday'"
+$qcd = "Select EmployeeName, StaffEmail, BirthDate from ViewPersonal_for_Dashboard where staffemail is not null AND EmployeeIC IN ('930106125663','880621125761')"
+#$qcd = "Select EmployeeName, StaffEmail, BirthDate from ViewPersonal_for_Dashboard where staffemail is not null and month(birthdate)='$todaymonth' and day(birthdate)='$todayday'"
 #change <BirthDate> && month(birthdate) -> RetireDate == column name in "ViewPersonal_for_Dashboard"
 
 ###############################################################################################################
@@ -19,11 +20,11 @@ $qcd = "Select EmployeeName, StaffEmail, BirthDate from ViewPersonal_for_Dashboa
 ###############################################################################################################
 
 Write-Host "Query 3:"
-$databases = Invoke-Sqlcmd -ServerInstance $SQLServer -Database $db3 -Query $qcd -Username "happybirthdaymailer" -Password "happybirthdaymailer.." 
+$databases = Invoke-Sqlcmd -ServerInstance $SQLServer -Database $db3 -Query $qcd -Username "JPANSrv" -Password "dgd(2021)" 
 foreach ($database in $databases) #for each separate server / database pair in $databases
 {
-$CH_NAME = $database.CH_NAME #instance from the select query
-$CH_EMAIL = $database.CH_EMAIL #databasename from the select query
+$CH_NAME = $database.EmployeeName #instance from the select query
+$CH_EMAIL = $database.StaffEmail #databasename from the select query
 Write-Output "$CH_NAME $CH_EMAIL"
 
 ##############################################################################################################

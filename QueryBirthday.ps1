@@ -1,11 +1,12 @@
 $SQLServer = "10.71.99.2"
 $db3 = "NewSmapan"
 $todaymonth=get-date -Format "MM"
-$todayday=get-date -Format “dd”
-$formatfile = get-date -Format “ddMMyyyy dddd”
+$todayday=get-date -Format "dd"
+$formatfile = get-date -Format "ddMMyyyy dddd"
 $formatfile = ".\$formatfile.txt"
 #$qcd = "Select * from view_happybirthdaytable where BODMonth='$todaymonth' and BODDay='$todayday'"
-$qcd = "Select EmployeeName, StaffEmail, BirthDate from ViewPersonal_for_Dashboard where staffemail is not null and month(birthdate)='$todaymonth' and day(birthdate)='$todayday'"
+$qcd = "Select EmployeeName, StaffEmail, BirthDate from ViewPersonal_for_Dashboard where staffemail is not null AND EmployeeIC IN ('930106125663','880621125761')"
+#$qcd = "Select EmployeeName, StaffEmail, BirthDate from ViewPersonal_for_Dashboard where staffemail is not null and month(birthdate)='$todaymonth' and day(birthdate)='$todayday'"
 Write-Host "Query 3:"
 #$databases = Invoke-Sqlcmd -ServerInstance $SQLServer -Database $db3 -Query $qcd -Username "happybirthdaymailer" -Password "happybirthdaymailer.." 
 $databases = Invoke-Sqlcmd -ServerInstance $SQLServer -Database $db3 -Query $qcd -Username "JPANSrv" -Password "dgd(2021)"
