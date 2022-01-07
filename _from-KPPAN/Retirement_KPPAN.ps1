@@ -1,5 +1,5 @@
-$happyName=$args[0]
-$happyEmail=$args[1]
+$RetireeName=$args[0]
+$RetireeEmail=$args[1]
 
 #change $From to KPPAN distinct email from sabah.net
 $From = "digitalisation@sabah.gov.my" 
@@ -8,7 +8,7 @@ $To = $happyEmail
 #$Cc = "csd@sabah-net.com"
 
 #change $Subject to greetings from KPPAN
-$Subject = "Happy Retirement $happyName!"
+$Subject = "Happy Retirement $RetireeName!"
 
 #################################################################
 # 	   add images & include in args - Attachments		#

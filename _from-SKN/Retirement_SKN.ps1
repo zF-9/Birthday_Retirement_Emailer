@@ -1,5 +1,5 @@
-$happyName=$args[0]
-$happyEmail=$args[1]
+$RetireeName=$args[0]
+$RetireeEmail=$args[1]
 
 #change $From to KPPAN distinct email from sabah.net
 $From = "digitalisation@sabah.gov.my" 
@@ -32,6 +32,6 @@ $SMTPPort = "25"
 # change <.html> in get-content to template accordingly 
 $Body = Get-Content '.\_from-SKN\sknretire.html' | Out-String 
 #".\Happy_retirement.html"
-$Body = $Body -replace "NameToReplace", $happyName
+$Body = $Body -replace "NameToReplace", $RetireeName
 
 Send-MailMessage -From $From -to $To -Subject $Subject -Body $Body -BodyAsHtml -SmtpServer $SMTPServer -port $SMTPPort -Attachments $Report
