@@ -5,7 +5,6 @@ $SQLServer = "10.71.99.2"
 $db3 = "NewSmapan"
 
 ###############################################################################################################
-$todayyear=get-date -Format "yyyy"
 $todaymonth=get-date -Format "MM"
 $todayday=get-date -Format "dd"
 
@@ -13,7 +12,7 @@ $formatfile = get-date -Format "ddMMyyyy dddd"
 $formatfile = ".\$formatfile.txt"
 #$qcd = "Select * from view_happybirthdaytable where BODMonth='$todaymonth' and BODDay='$todayday'"
 $qcd = "Select EmployeeName, StaffEmail, BirthDate from ViewPersonal_for_Dashboard where staffemail is not null AND EmployeeIC IN ('930106125663','880621125761')"
-#$qcd = "Select EmployeeName, StaffEmail, DateRetire from ViewPersonal_for_Dashboard where staffemail is not null and year(dateretire) = 'todayyear' and month(dateretire)='todaymonth' and day(dateretire)='todayday' + 1;"
+#$qcd = "Select EmployeeName, StaffEmail, BirthDate from ViewPersonal_for_Dashboard where staffemail is not null and month(birthdate)='$todaymonth' and day(birthdate)='$todayday'"
 #change <BirthDate> && month(birthdate) -> RetireDate == column name in "ViewPersonal_for_Dashboard"
 
 ###############################################################################################################
